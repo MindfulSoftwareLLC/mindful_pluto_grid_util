@@ -4,7 +4,17 @@
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
-"flutter_package for Flutter utilities that work with pluto_grid"
+Flutter utilities that work with pluto_grid.
+
+There are two GridBuilder one for a simple Stateless Widget
+and the other specific to riverpod AsyncValue.
+
+Hence half this package relies on riverpod and should probably be moved to 
+a separate library keeping this only dependent on PlutoGrid.
+
+There other dependency is on Flutter Shimmer for a default shimmer effect.
+Since flutter shimmer has no dependencies that's not too bad but could be improved
+by writing a customer shimmer effect in this library.
 
 ## Installation 💻
 

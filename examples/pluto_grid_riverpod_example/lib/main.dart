@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pluto_grid_riverpod_example/add_job_button.dart';
 import 'package:pluto_grid_riverpod_example/firebase_options.dart';
-import 'package:pluto_grid_riverpod_example/jobs_grid.dart';
+import 'package:pluto_grid_riverpod_example/job.dart';
 
 /// This was the basis for the pluto_grid "bug"
 /// https://github.com/bosskmk/pluto_grid/issues/828
@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    createPlutoGrid();
     return ProviderScope(
         child: MaterialApp(
             title: 'Pluto Grid does not update with Riverpod stream Demo',
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   height: 600,
-                  child: JobsGrid(),
+                  child: PlutoRiverpodGridBuilder<Job>(),
                 ),
               ),
             ])))));

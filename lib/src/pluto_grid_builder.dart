@@ -5,13 +5,14 @@ import 'package:pluto_grid/pluto_grid.dart';
 /// Builds a PlutoGrid from Pluto objects
 class PlutoGridBuilder<T> extends StatefulWidget {
   /// Builds a PlutoGrid widget from the configs
-  const PlutoGridBuilder(
-      {super.key,
-      required this.data,
-      required this.columns,
-      required this.rowsBuilder,
-      this.noRowsWidget = const SizedBox.shrink(),
-      this.plutoGridConfiguration = const PlutoGridConfiguration()});
+  const PlutoGridBuilder({
+    super.key,
+    required this.data,
+    required this.columns,
+    required this.rowsBuilder,
+    this.noRowsWidget = const SizedBox.shrink(),
+    this.plutoGridConfiguration = const PlutoGridConfiguration(),
+  });
 
   /// Pluto column config
   final List<PlutoColumn> columns;
@@ -38,10 +39,11 @@ class _GridBuilderState<T> extends State<PlutoGridBuilder<T>> {
   @override
   Widget build(BuildContext context) {
     return createPlutoGrid<T>(
-        data: widget.data,
-        rowsBuilder: widget.rowsBuilder,
-        columns: widget.columns,
-        noRowsWidget: widget.noRowsWidget,
-        plutoGridConfiguration: widget.plutoGridConfiguration);
+      data: widget.data,
+      rowsBuilder: widget.rowsBuilder,
+      columns: widget.columns,
+      noRowsWidget: widget.noRowsWidget,
+      plutoGridConfiguration: widget.plutoGridConfiguration,
+    );
   }
 }

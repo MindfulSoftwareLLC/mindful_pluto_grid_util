@@ -5,12 +5,14 @@ import 'package:pluto_grid/pluto_grid.dart';
 typedef RowsBuilder<T> = List<PlutoRow> Function(List<T> data);
 
 /// Creates a PlutoGrid from a list of data rows and the Pluto configs
-Widget createPlutoGrid<T>(
-    {required List<T> data,
-    required RowsBuilder<T> rowsBuilder,
-    required List<PlutoColumn> columns,
-    Widget? noRowsWidget,
-    PlutoGridConfiguration? plutoGridConfiguration}) {
+/// Used by both PlutoGridBuilder and PlutoRiverPodGridBuilder
+Widget createPlutoGrid<T>({
+  required List<T> data,
+  required RowsBuilder<T> rowsBuilder,
+  required List<PlutoColumn> columns,
+  Widget? noRowsWidget,
+  PlutoGridConfiguration? plutoGridConfiguration,
+}) {
   final rows = rowsBuilder(data);
   return PlutoGrid(
     key: ObjectKey(rows),

@@ -49,15 +49,17 @@ class _GridBuilderState<T> extends ConsumerState<PlutoRiverpodGridBuilder<T>> {
   @override
   Widget build(BuildContext context) {
     return widget.asyncData.when(
-        error: widget.error ?? (error, stack) => ErrorWidget(error),
-        loading: widget.loading ?? () => const ListTileShimmer(),
-        data: (data) {
-          return createPlutoGrid<T>(
-              data: data,
-              rowsBuilder: widget.rowsBuilder,
-              columns: widget.columns,
-              noRowsWidget: widget.noRowsWidget,
-              plutoGridConfiguration: widget.plutoGridConfiguration);
-        });
+      error: widget.error ?? (error, stack) => ErrorWidget(error),
+      loading: widget.loading ?? () => const ListTileShimmer(),
+      data: (data) {
+        return createPlutoGrid<T>(
+          data: data,
+          rowsBuilder: widget.rowsBuilder,
+          columns: widget.columns,
+          noRowsWidget: widget.noRowsWidget,
+          plutoGridConfiguration: widget.plutoGridConfiguration,
+        );
+      },
+    );
   }
 }
